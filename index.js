@@ -1,7 +1,11 @@
 const express = require("express");
 const cors = require("cors");
+const db = require("./database");
 
-app.use(express.json());
+const app = express();
+
+db.hasConnection();
+
 app.use(cors());
 
 // definicao de endereço e url
