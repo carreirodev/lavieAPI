@@ -1,0 +1,29 @@
+{
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^4.18.1",
+		"sequelize": "^6.19.0"
+	},
+	"name": "lavieapi",
+	"version": "1.0.0",
+	"description": "HandsOn 3 - Gama XP 42 - Grupo 13",
+	"main": "index.js",
+	"devDependencies": {},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "nodemon index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/carreirodev/lavieAPI.git"
+	},
+	"keywords": [
+		"api"
+	],
+	"author": "Eduardo, Gefferson, Leonardo, Micael e Roberto",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/carreirodev/lavieAPI/issues"
+	},
+	"homepage": "https://github.com/carreirodev/lavieAPI#readme"
+}
