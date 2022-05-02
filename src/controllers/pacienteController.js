@@ -51,7 +51,7 @@ const pacienteController = {
     },
 
 
-    atualizarPaciente(req, res){
+    async atualizarPaciente(req, res){
         try {
             // capturei os dados da request numa estrutura
             const { id } = req.params;

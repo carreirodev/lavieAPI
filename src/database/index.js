@@ -1,10 +1,10 @@
 const Sequelize = require("sequelize");
 
-const senhaDATABASE = "sdGyJJhChiqbydu8VCut"; // <= COLOQUE AQUI SUA SENHA
+const senhaDATABASE = "sql123"; // <= COLOQUE AQUI SUA SENHA
 
 const DB_NAME = "lavie";
 const DB_USER = "root";
-const DB_PASS = "Roberts666";
+const DB_PASS = senhaDATABASE;
 const DB_CONFIG = {
 	dialect: "mysql",
 	host: "localhost",
