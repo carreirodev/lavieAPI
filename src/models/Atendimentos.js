@@ -4,7 +4,7 @@ const Psicologos = require("./Psicologos");
 const Pacientes = require("./Pacientes");
 
 const Atendimentos = db.define(
-	"Atendimentos",
+	"atendimentos",
 	{
 		atendimento_id: {
 			type: DataTypes.INTEGER,
