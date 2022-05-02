@@ -1,5 +1,6 @@
 const express = require ('express');
 const pacienteController = require ('../controllers/pacienteController');
+const atendimentoController = require('../controllers/atendimentoController')
 
 
 const routes = express.Router();
@@ -13,6 +14,8 @@ routes.post("/pacientes", pacienteController.cadastrarPaciente);
 routes.put("/pacientes", pacienteController.atualizarPaciente);
 routes.delete("/pacientes", pacienteController.apagarPaciente);
 
-
+routes.get("/atendimentos", atendimentoController.listarAtendimentos)
+routes.get("/atendimentos/:id", atendimentoController.buscarAtendimento)
+routes.post("/atendimentos", atendimentoController.criarAtendimento)
 
 module.exports = routes;
