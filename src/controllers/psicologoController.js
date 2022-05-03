@@ -8,6 +8,7 @@ const psicologoController = {
         const listaDePsicologos = await Psicologos.findAll({
             // include: Atendimentos
         });
+        console.log(req.auth);
 
         res.status(200).json(listaDePsicologos);
     },
@@ -16,6 +17,8 @@ const psicologoController = {
     async detalhesDoPsicologo(req, res) {
         try {
         const id = req.params['id'];
+
+            console.log(req.auth);
 
             const psicologo = await Psicologos.findByPk(id);
             if (psicologo) {
@@ -66,6 +69,8 @@ const psicologoController = {
                 id
             } = req.params;
 
+            console.log(req.auth);
+
             const psicologo = await Psicologos.findByPk(id);
 
             if (psicologo) {
@@ -91,6 +96,8 @@ const psicologoController = {
             const {
                 id
             } = req.params;
+
+            console.log(req.auth);
 
             const {
                 nome,
