@@ -26,7 +26,7 @@ const atendimentoController = {
             paciente_psicologo: req.body.paciente_id,
             data_atendimento: req.body.data_atendimento,
             observacao: req.body.observacao,
-            psicologo_paciente: 1 // pegar do login
+            psicologo_paciente: req.auth.psicologo_id
         }
         try {
             const atendimentoCriado = await Atendimentos.create(novoAtendimento)
