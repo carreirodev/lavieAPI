@@ -25,6 +25,10 @@ const Psicologos = db.define(
 		apresentacao: {
 			type: DataTypes.STRING,
 			allowNull: false
+		},
+		status: {
+			type: DataTypes.INTEGER,
+			allowNull: false
 		}
 	},
 	{
