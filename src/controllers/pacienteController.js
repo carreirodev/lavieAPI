@@ -1,4 +1,4 @@
-const Pacientes = require("../models/Pacientes");
+const {Pacientes} = require("../models/");
 
 const pacienteController = {
     async listarPacientes(req, res) {
@@ -53,10 +53,14 @@ const pacienteController = {
 
     async atualizarPaciente(req, res){
         try {
-            // capturei os dados da request numa estrutura
             const { id } = req.params;
             const { nome, email, idade } = req.body;
-            const atualizaDados = await Pacientes.update({nome, email, idade});
+            const atualizaDados = await Pacientes.update({nome, email, idade},
+                {
+                    where: {
+                        paciente_id: id
+                    }
+                } );
             return res.status(201).json(atualizaDados);
         }
         catch (error) {
@@ -67,9 +71,20 @@ const pacienteController = {
     },
 
 
-    apagarPaciente(req, res){
-        console.log("estou na funcao de apagar");
-        res.send("PRODUTOcontroller-apagar");
+    async apagarPaciente(req, res){
+        try {
+            const { id } = req.params;
+      
+            await Pacientes.destroy({
+              where: {
+                id,
+              },
+            });
+      
+            res.status(204);
+          } catch (error) {
+            return res.status(500).json("Não foi possível apagar o paciente");
+          }
     }
 
 }

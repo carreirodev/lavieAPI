@@ -21,6 +21,10 @@ const Pacientes = db.define(
 		idade: {
 			type: DataTypes.DATEONLY,
 			allowNull: false
+		},
+		status: {
+			type: DataTypes.INTEGER,
+			allowNull: false
 		}
 	},
 	{

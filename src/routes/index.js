@@ -16,8 +16,8 @@ const routes = express.Router();
 routes.get("/pacientes", pacienteController.listarPacientes);
 routes.get("/pacientes/:id", pacienteController.detalhesDoPaciente);
 routes.post("/pacientes", pacienteController.cadastrarPaciente);
-routes.put("/pacientes", pacienteController.atualizarPaciente);
-routes.delete("/pacientes", pacienteController.apagarPaciente);
+routes.put("/pacientes/:id", pacienteController.atualizarPaciente);
+routes.delete("/pacientes/:id", pacienteController.apagarPaciente);
 
 routes.get("/atendimentos", atendimentoController.listarAtendimentos);
 routes.get("/atendimentos/:id", atendimentoController.buscarAtendimento);
