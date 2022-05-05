@@ -9,13 +9,14 @@ const psicologoCreateValidation = require('../validator/psicologos/create');
 const psicologoUpdateValidation = require('../validator/psicologos/update');
 const psicologoSelectIDValidation = require('../validator/psicologos/selectID');
 const atendimentoCreateValidation = require('../validator/atendimentos/create');
+const pacienteCreateValidation = require('../validator/pacientes/create');
 
 const routes = express.Router();
 
 // Rotas do CRUD para pacientes
 routes.get("/pacientes", pacienteController.listarPacientes);
 routes.get("/pacientes/:id", pacienteController.detalhesDoPaciente);
-routes.post("/pacientes", pacienteController.cadastrarPaciente);
+routes.post("/pacientes", pacienteCreateValidation, pacienteController.cadastrarPaciente);
 routes.put("/pacientes/:id", pacienteController.atualizarPaciente);
 routes.delete("/pacientes/:id", pacienteController.apagarPaciente);
 
