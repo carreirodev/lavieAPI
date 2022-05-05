@@ -10,6 +10,10 @@ const psicologoController = {
             where: {
                 status: 1
             },
+            
+            attributes: {
+                exclude: ['status']
+            },
         });
         console.log(req.auth);
 
@@ -68,8 +72,10 @@ const psicologoController = {
                 status:1
                 
             });
-
+            
+            delete newPsicologo.dataValues.status;
             return res.status(201).json(newPsicologo);
+            
         } catch (error) {
             if(error.name == "SequelizeUniqueConstraintError"){
                 return res.status(400).json("E-mail já existente!");
@@ -159,7 +165,16 @@ const psicologoController = {
                 }
             });
 
-            const psicologoAtualizado = await Psicologos.findByPk(id);
+            const psicologoAtualizado = await Psicologos.findOne({
+                where: {
+                    status: 1,
+                    psicologo_id:id
+                },
+                
+                attributes: {
+                    exclude: ['status']
+                },
+            });
             return res.status(200).json(psicologoAtualizado);
         } catch (error) {
             if(error.name == "SequelizeUniqueConstraintError"){
