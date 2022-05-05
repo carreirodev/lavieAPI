@@ -15,14 +15,14 @@ const pacienteCreateValidation = require('../validator/pacientes/create');
 const routes = express.Router();
 
 // Rotas do CRUD para pacientes
-routes.get("/pacientes", pacienteController.listarPacientes);
-routes.get("/pacientes/:id", pacienteController.detalhesDoPaciente);
-routes.post("/pacientes", pacienteCreateValidation, pacienteController.cadastrarPaciente);
-routes.put("/pacientes/:id", pacienteController.atualizarPaciente);
-routes.delete("/pacientes/:id", pacienteController.apagarPaciente);
+routes.get("/pacientes", auth, pacienteController.listarPacientes);
+routes.get("/pacientes/:id", auth, pacienteController.detalhesDoPaciente);
+routes.post("/pacientes", auth, pacienteCreateValidation, pacienteController.cadastrarPaciente);
+routes.put("/pacientes/:id", auth, pacienteController.atualizarPaciente);
+routes.delete("/pacientes/:id", auth, pacienteController.apagarPaciente);
 
 routes.get("/atendimentos", atendimentoController.listarAtendimentos);
-routes.get("/atendimentos/:id", psicologoSelectIDValidation, atendimentoController.buscarAtendimento);
+routes.get("/atendimentos/:id", psicologoSelectIDValidation, auth, atendimentoController.buscarAtendimento);
 routes.post("/atendimentos", auth, atendimentoCreateValidation, atendimentoController.criarAtendimento);
 
 routes.get("/psicologos", auth, psicologoController.listarPsicologos);
