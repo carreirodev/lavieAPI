@@ -1,0 +1,575 @@
+{
+	"info": {
+		"_postman_id": "cf5ee1f2-a9cb-4bea-a7b5-e3b9b09bebde",
+		"name": "La Vie",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Autenticação",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"psicologo@lavie.com\",\r\n    \"senha\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"login"
+							]
+						},
+						"description": "Esse endpoint ira gerar um token que será necessario para acessar a API."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Psicologos",
+			"item": [
+				{
+					"name": "Listar todos psicologos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwc2ljb2xvZ29faWQiOjQ0LCJlbWFpbCI6InBzaWNvbG9nb0BsYXZpZS5jb20iLCJub21lIjoicHNpY29sb2dvTmFtZSIsImFwcmVzZW50YWNhbyI6IjI2IGFub3MgZm9ybWFuZG8gZW0gWFhYLCB1dGlsaXphIG8gbWV0b2RvIGRlIHBzaWNhbmFsaXNlLiIsImlhdCI6MTY1MTc5MjUyOH0.gIkWYF1C13-by8Ki0Svjlbn6VAaFn-ldSTtiviiix0U",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/psicologos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"psicologos"
+							]
+						},
+						"description": "Esse endpoint irá listar todos os psicologos ativos da API.  \nEssa não é uma rota publica, logo você precisara no Header um Token de Acesso."
+					},
+					"response": []
+				},
+				{
+					"name": "Listar psicologo por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwc2ljb2xvZ29faWQiOjQ0LCJlbWFpbCI6InBzaWNvbG9nb0BsYXZpZS5jb20iLCJub21lIjoicHNpY29sb2dvTmFtZSIsImFwcmVzZW50YWNhbyI6IjI2IGFub3MgZm9ybWFuZG8gZW0gWFhYLCB1dGlsaXphIG8gbWV0b2RvIGRlIHBzaWNhbmFsaXNlLiIsImlhdCI6MTY1MTc5MjUyOH0.gIkWYF1C13-by8Ki0Svjlbn6VAaFn-ldSTtiviiix0U",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/psicologos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"psicologos",
+								"1"
+							]
+						},
+						"description": "Esse endpoint irá pegar os dados de um psicologo especifico passando via URL o id dele.  \nEssa não é uma rota publica, logo você precisara no Header um Token de Acesso."
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar psicologo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"psicologoName\",\r\n    \"email\": \"psicologo@lavie.com\",\r\n    \"senha\": \"123456\",\r\n    \"apresentacao\": \"26 anos formando em XXX, utiliza o metodo de psicanalise.\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/psicologos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"psicologos"
+							]
+						},
+						"description": "Esse endpoint irá criar um psicologo na base de dados.  \nVocê deve passar um objeto JSON conforme os valores descritos a baixo:"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar psicologo",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwc2ljb2xvZ29faWQiOjQ0LCJlbWFpbCI6InBzaWNvbG9nb0BsYXZpZS5jb20iLCJub21lIjoicHNpY29sb2dvTmFtZSIsImFwcmVzZW50YWNhbyI6IjI2IGFub3MgZm9ybWFuZG8gZW0gWFhYLCB1dGlsaXphIG8gbWV0b2RvIGRlIHBzaWNhbmFsaXNlLiIsImlhdCI6MTY1MTc5MjUyOH0.gIkWYF1C13-by8Ki0Svjlbn6VAaFn-ldSTtiviiix0U",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"psicologoNameAlterado\",\r\n    \"email\": \"psicologo@lavie.com\",\r\n    \"senha\": \"123456\",\r\n    \"apresentacao\": \"26 anos formando em XXX, utiliza o metodo de psicanalise.\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/psicologos/44",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"psicologos",
+								"44"
+							]
+						},
+						"description": "Esse endpoint irá atualizar os dados do psicologo cadastrado passando via URL o id dele.  \nEssa não é uma rota publica, logo você precisara no Header um Token de Acesso.\n\nNão será possivel atualizar os dados se o id do usuario (Token) for diferente do id passado via URL.  \nVocê deve passar um objeto JSON conforme os valores dito a baixo:"
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar psicologo",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwc2ljb2xvZ29faWQiOjQ0LCJlbWFpbCI6InBzaWNvbG9nb0BsYXZpZS5jb20iLCJub21lIjoicHNpY29sb2dvTmFtZSIsImFwcmVzZW50YWNhbyI6IjI2IGFub3MgZm9ybWFuZG8gZW0gWFhYLCB1dGlsaXphIG8gbWV0b2RvIGRlIHBzaWNhbmFsaXNlLiIsImlhdCI6MTY1MTc5MjUyOH0.gIkWYF1C13-by8Ki0Svjlbn6VAaFn-ldSTtiviiix0U",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/psicologos/44",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"psicologos",
+								"44"
+							]
+						},
+						"description": "Esse endpoint irá deletar um psicologo especifico passando via URL o id dele.\n\nEssa não é uma rota publica, logo você precisara no Header um Token de Acesso.\n\nNão será possivel deletar os dados se o id do usuario (Token) for diferente do id passado via URL."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pacientes",
+			"item": [
+				{
+					"name": "Listar todos os pacientes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwc2ljb2xvZ29faWQiOjQ0LCJlbWFpbCI6InBzaWNvbG9nb0BsYXZpZS5jb20iLCJub21lIjoicHNpY29sb2dvTmFtZSIsImFwcmVzZW50YWNhbyI6IjI2IGFub3MgZm9ybWFuZG8gZW0gWFhYLCB1dGlsaXphIG8gbWV0b2RvIGRlIHBzaWNhbmFsaXNlLiIsImlhdCI6MTY1MTc5MjUyOH0.gIkWYF1C13-by8Ki0Svjlbn6VAaFn-ldSTtiviiix0U",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/pacientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"pacientes"
+							]
+						},
+						"description": "Esse endpoint irá listar todos os pacientes ativos da API.  \nEssa não é uma rota publica, logo você precisara no Header um Token de Acesso."
+					},
+					"response": []
+				},
+				{
+					"name": "Listar paciente por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwc2ljb2xvZ29faWQiOjQ0LCJlbWFpbCI6InBzaWNvbG9nb0BsYXZpZS5jb20iLCJub21lIjoicHNpY29sb2dvTmFtZSIsImFwcmVzZW50YWNhbyI6IjI2IGFub3MgZm9ybWFuZG8gZW0gWFhYLCB1dGlsaXphIG8gbWV0b2RvIGRlIHBzaWNhbmFsaXNlLiIsImlhdCI6MTY1MTc5MjUyOH0.gIkWYF1C13-by8Ki0Svjlbn6VAaFn-ldSTtiviiix0U",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/pacientes/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"pacientes",
+								"6"
+							]
+						},
+						"description": "StartFragment\n\nEsse endpoint irá pegar os dados de um paciente especifico passando via URL o id dele.  \nEssa não é uma rota publica, logo você precisara no Header um Token de Acesso.\n\nEndFragment"
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar paciente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwc2ljb2xvZ29faWQiOjQ0LCJlbWFpbCI6InBzaWNvbG9nb0BsYXZpZS5jb20iLCJub21lIjoicHNpY29sb2dvTmFtZSIsImFwcmVzZW50YWNhbyI6IjI2IGFub3MgZm9ybWFuZG8gZW0gWFhYLCB1dGlsaXphIG8gbWV0b2RvIGRlIHBzaWNhbmFsaXNlLiIsImlhdCI6MTY1MTc5MjUyOH0.gIkWYF1C13-by8Ki0Svjlbn6VAaFn-ldSTtiviiix0U",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Paciente1\",\r\n    \"email\": \"paciente@lavie.com\",\r\n    \"idade\": \"2000-02-17\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/pacientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"pacientes"
+							]
+						},
+						"description": "Esse endpoint irá criar um paciente na base de dados.\n\nEssa não é uma rota publica, logo você precisara no Header um Token de Acesso.\n\nVocê deve passar um objeto JSON conforme os valores descritos a baixo:"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar paciente",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwc2ljb2xvZ29faWQiOjQ0LCJlbWFpbCI6InBzaWNvbG9nb0BsYXZpZS5jb20iLCJub21lIjoicHNpY29sb2dvTmFtZSIsImFwcmVzZW50YWNhbyI6IjI2IGFub3MgZm9ybWFuZG8gZW0gWFhYLCB1dGlsaXphIG8gbWV0b2RvIGRlIHBzaWNhbmFsaXNlLiIsImlhdCI6MTY1MTc5MjUyOH0.gIkWYF1C13-by8Ki0Svjlbn6VAaFn-ldSTtiviiix0U",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Paciente1Alterado\",\r\n    \"email\": \"pacienteAlterado@lavie.com\",\r\n    \"idade\": \"2000-02-17\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/pacientes/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"pacientes",
+								"6"
+							]
+						},
+						"description": "Esse endpoint irá atualizar os dados do paciente cadastrado passando via URL o id dele.  \nEssa não é uma rota publica, logo você precisara no Header um Token de Acesso.\n\nNão será possivel atualizar os dados se o id do usuario (Token) for diferente do id passado via URL.  \nVocê deve passar um objeto JSON conforme os valores dito a baixo:"
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar paciente",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwc2ljb2xvZ29faWQiOjQ0LCJlbWFpbCI6InBzaWNvbG9nb0BsYXZpZS5jb20iLCJub21lIjoicHNpY29sb2dvTmFtZSIsImFwcmVzZW50YWNhbyI6IjI2IGFub3MgZm9ybWFuZG8gZW0gWFhYLCB1dGlsaXphIG8gbWV0b2RvIGRlIHBzaWNhbmFsaXNlLiIsImlhdCI6MTY1MTc5MjUyOH0.gIkWYF1C13-by8Ki0Svjlbn6VAaFn-ldSTtiviiix0U",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/pacientes/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"pacientes",
+								"6"
+							]
+						},
+						"description": "Esse endpoint irá deletar um paciente especifico passando via URL o id dele.\n\nEssa não é uma rota publica, logo você precisara no Header um Token de Acesso.\n\nNão será possivel deletar os dados se o id do usuario (Token) for diferente do id passado via URL."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Atendimentos",
+			"item": [
+				{
+					"name": "Listar todos atendimentos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwc2ljb2xvZ29faWQiOjI2LCJlbWFpbCI6ImRiMjIyMjIyMkBsYXZpZS5jb20iLCJub21lIjoiRGF0YUJhc2UyIiwiYXByZXNlbnRhY2FvIjoiVGVzdGFuZG8gTG9naW4gQVBJIExhIFZpZSIsImlhdCI6MTY1MTcwMjU0N30.SGy0ToZlnMCCZAWWxBsLmKOwZw6ISNZMPLTEQbfewb4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:4000/atendimentos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"atendimentos"
+							]
+						},
+						"description": "Esse endpoint irá listar todos os atendimentos ativos da API.  \nEssa não é uma rota publica, logo você precisara no Header um Token de Acesso."
+					},
+					"response": []
+				},
+				{
+					"name": "Listar atendimento por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwc2ljb2xvZ29faWQiOjI2LCJlbWFpbCI6ImRiMjIyMjIyMkBsYXZpZS5jb20iLCJub21lIjoiRGF0YUJhc2UyIiwiYXByZXNlbnRhY2FvIjoiVGVzdGFuZG8gTG9naW4gQVBJIExhIFZpZSIsImlhdCI6MTY1MTcwMjU0N30.SGy0ToZlnMCCZAWWxBsLmKOwZw6ISNZMPLTEQbfewb4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/atendimentos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"atendimentos",
+								"1"
+							]
+						},
+						"description": "Esse endpoint irá pegar os dados de um atendimento especifico passando via URL o id dele.  \nEssa não é uma rota publica, logo você precisara no Header um Token de Acesso."
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar atendimento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwc2ljb2xvZ29faWQiOjI2LCJlbWFpbCI6ImRiMjIyMjIyMkBsYXZpZS5jb20iLCJub21lIjoiRGF0YUJhc2UyIiwiYXByZXNlbnRhY2FvIjoiVGVzdGFuZG8gTG9naW4gQVBJIExhIFZpZSIsImlhdCI6MTY1MTY1MzA5MH0.-h4nqcVpxaej1sOnWR1vwtFYJELDo6ZMg3G-qSrlaz8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"paciente_id\": \"1\",\r\n    \"data_atendimento\": \"2020-05-04\",\r\n    \"observacao\": \"AUHSSHUSHUSHU\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/atendimentos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"atendimentos"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Esse endpoint irá criar um atendimento na base de dados.\n\nEssa não é uma rota publica, logo você precisara no Header um Token de Acesso.  \nVocê deve passar um objeto JSON conforme os valores descritos a baixo:"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "Total de pacientes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwc2ljb2xvZ29faWQiOjI5LCJlbWFpbCI6ImRhc2hiQGxhdmllLmNvbSIsIm5vbWUiOiJEQVNIQk9BUkRURVNUIiwiYXByZXNlbnRhY2FvIjoiVEVTVEFORE8gREFTSEJPQVJEICIsImlhdCI6MTY1MTcwNDIzN30.9xt_g7HEVbg33-RqqsFP_0oVYv0AFoaUqAymtRmvJJY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/dashboard/numero-paciente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"dashboard",
+								"numero-paciente"
+							]
+						},
+						"description": "Esse endpoint irá devolver o total de pacientes ativos da API.  \nEssa não é uma rota publica, logo você precisara no Header um Token de Acesso."
+					},
+					"response": []
+				},
+				{
+					"name": "Total de psicologos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwc2ljb2xvZ29faWQiOjQxLCJlbWFpbCI6ImRhc2hib2FyZEBsYXZpZS5jb20iLCJub21lIjoiREFTSEJPQVJEVEVTVCIsImFwcmVzZW50YWNhbyI6IlRFU1RBTkRPIERBU0hCT0FSRCAiLCJpYXQiOjE2NTE3MTY5NzV9.484jE805th9-TS9IxsiZyMX1c74WSw-3CfweRe1d5iI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/dashboard/numero-psicologo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"dashboard",
+								"numero-psicologo"
+							]
+						},
+						"description": "Esse endpoint irá devolver o total de psicologos ativos da API.  \nEssa não é uma rota publica, logo você precisara no Header um Token de Acesso."
+					},
+					"response": []
+				},
+				{
+					"name": "Total de atendimentos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwc2ljb2xvZ29faWQiOjQxLCJlbWFpbCI6ImRhc2hib2FyZEBsYXZpZS5jb20iLCJub21lIjoiREFTSEJPQVJEVEVTVCIsImFwcmVzZW50YWNhbyI6IlRFU1RBTkRPIERBU0hCT0FSRCAiLCJpYXQiOjE2NTE3MTY5NzV9.484jE805th9-TS9IxsiZyMX1c74WSw-3CfweRe1d5iI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/dashboard/media-atendimento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"dashboard",
+								"media-atendimento"
+							]
+						},
+						"description": "Esse endpoint irá devolver o total de atendimentos ativos da API.  \nEssa não é uma rota publica, logo você precisara no Header um Token de Acesso."
+					},
+					"response": []
+				},
+				{
+					"name": "Media de atendimento por psicologo",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwc2ljb2xvZ29faWQiOjQxLCJlbWFpbCI6ImRhc2hib2FyZEBsYXZpZS5jb20iLCJub21lIjoiREFTSEJPQVJEVEVTVCIsImFwcmVzZW50YWNhbyI6IlRFU1RBTkRPIERBU0hCT0FSRCAiLCJpYXQiOjE2NTE3MTY5NzV9.484jE805th9-TS9IxsiZyMX1c74WSw-3CfweRe1d5iI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/dashboard/numero-atendimento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"dashboard",
+								"numero-atendimento"
+							]
+						},
+						"description": "Esse endpoint irá devolver a media de atendimentos por psicologo .  \nEssa não é uma rota publica, logo você precisara no Header um Token de Acesso."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
