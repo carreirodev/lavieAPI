@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 
-const senhaDATABASE = "SENHA"; // <= COLOQUE AQUI SUA SENHA
+const senhaDATABASE = "sdGyJJhChiqbydu8VCut"; // <= COLOQUE AQUI SUA SENHA
 
 const DB_NAME = "lavie";
 const DB_USER = "root";
